@@ -1,2 +1,34 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container pt-3">
+  <div class="row">
+    <%= render 'books/list', book: @book_new %>
+    
+    
+    <div class="col-8">
+      <h2>Books</h2>
+     <table class="w-100">
+       <thead>
+         <tr>
+           <th></th>
+           <th>Title</th>
+           <th>Opinion</th>
+           <th colspan="3"></th>
+         </tr>
+       </thead>
+       <% @book.each do |user| %>
+       <tbody class="border-top">
+           
+         <td>
+          <%= image_tag @user.get_profile_image(100,100) %></td>
+         
+         <td><%= link_to book_path(user.id) do %>
+           <%= user.title %></td>
+           <% end %>
+         <td><%= user.body %></td>
+         
+       </tbody>
+        <% end %>
+         
+     </table>
+    </div>
+  </div>
+</div>
