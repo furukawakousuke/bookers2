@@ -4,26 +4,27 @@
     
     
     <div class="col-8">
-      <h2>Books</h2>
-     <table class="w-100">
+      <h2 class="border-bottom pb-2">Books</h2>
+     <table class="w-100 ">
        <thead>
          <tr>
            <th></th>
-           <th>Title</th>
-           <th>Opinion</th>
+           <th class="pb-2">Title</th>
+           <th class="pb-2">Opinion</th>
            <th colspan="3"></th>
          </tr>
        </thead>
        <% @book.each do |user| %>
-       <tbody class="border-top">
+       <tbody class="border-top btn-outline-light">
            
-         <td>
-          <%= image_tag @user.get_profile_image(100,100) %></td>
-         
+         <td class=" pt-2 pb-2">
+             <%= link_to user_path(@user.id) do %>
+          <%= image_tag @user.get_profile_image(80,80)%></td>
+         <% end %>
          <td><%= link_to book_path(user.id) do %>
            <%= user.title %></td>
            <% end %>
-         <td><%= user.body %></td>
+         <td class="text-dark"><%= user.body %></td>
          
        </tbody>
         <% end %>

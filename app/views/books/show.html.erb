@@ -23,10 +23,12 @@
           <span class="d-block"><%= @user.name  %></span>
           <% end %></td>
          
-         <td><%= @book.title %></td>
-         <td><%= @book.body %></td>
-         <td><%= link_to "Edit",edit_book_path(@book.id) ,class:"btn btn-success" %></td>
+         <td class="w-50 pl-5"><%= link_to book_path(@book.id) do %>
+          <%= @book.title %>
+          <% end %></td>
+         <td class="w-50  "><%= @book.body %></td>
          <% if @book.user == current_user %>
+         <td><%= link_to "Edit",edit_book_path(@book.id) ,class:"btn btn-success" %></td>
          <td><%= link_to "destroy",book_path(@book),method: :delete,"data-confirm" => "本当に消しますか？" ,class:"btn btn-danger"%></td>
        </tbody>
          <% end %>
