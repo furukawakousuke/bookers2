@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row">
       
-   <%= render 'list', book: @book_new %>
+   <%= render 'list', nbook: @book_new, book: @book, user: @user %>
    
    
    <div class="col-md-8">
@@ -28,8 +28,8 @@
           <% end %></td>
          <td class="w-50  "><%= @book.body %></td>
          <% if @book.user == current_user %>
-         <td><%= link_to "Edit",edit_book_path(@book.id) ,class:"btn btn-success" %></td>
-         <td><%= link_to "destroy",book_path(@book),method: :delete,"data-confirm" => "本当に消しますか？" ,class:"btn btn-danger"%></td>
+         <td><%= link_to "Edit",edit_book_path(@book.id) ,class:"btn btn-success btn-sm" %></td>
+         <td><%= link_to "destroy",book_path(@book),method: :delete,"data-confirm" => "本当に消しますか？" ,class:"btn btn-danger btn-sm"%></td>
        </tbody>
          <% end %>
          

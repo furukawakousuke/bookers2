@@ -1,6 +1,6 @@
 <div class="container pt-3">
   <div class="row">
-    <%= render 'books/list', book: @book_new %>
+    <%= render 'books/list', book: @book_new,nbook: @book, user: @user %>
     
     
     <div class="col-8">
@@ -14,14 +14,14 @@
            <th colspan="3"></th>
          </tr>
        </thead>
-       <% @book.each do |user| %>
+       <% @books.each do |user| %>
        <tbody class="border-top btn-outline-light">
            
          <td class=" pt-2 pb-2">
              <%= link_to user_path(@user.id) do %>
           <%= image_tag @user.get_profile_image(80,80)%></td>
          <% end %>
-         <td><%= link_to book_path(user.id) do %>
+         <td><%= link_to book_path(@book_no.id) do %>
            <%= user.title %></td>
            <% end %>
          <td class="text-dark"><%= user.body %></td>
