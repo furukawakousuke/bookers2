@@ -1,9 +1,9 @@
 <div class="container pt-3">
   <div class="row">
-    <%= render 'books/list', book: @book_new,nbook: @book, user: @user %>
+    <%= render 'books/list', book: @book,nbook: @book_new, user: @user %>
     
     
-    <div class="col-8">
+    <div class="col-md-8 offset-md-1">
       <h2 class="border-bottom pb-2">Books</h2>
      <table class="w-100 ">
        <thead>
@@ -14,17 +14,17 @@
            <th colspan="3"></th>
          </tr>
        </thead>
-       <% @books.each do |user| %>
+       <% @books.each do |book| %>
        <tbody class="border-top btn-outline-light">
            
          <td class=" pt-2 pb-2">
              <%= link_to user_path(@user.id) do %>
           <%= image_tag @user.get_profile_image(80,80)%></td>
          <% end %>
-         <td><%= link_to book_path(@book_no.id) do %>
-           <%= user.title %></td>
+         <td><%= link_to book_path(book.id) do %>
+           <%= book.title %></td>
            <% end %>
-         <td class="text-dark"><%= user.body %></td>
+         <td class="text-dark"><%= book.body %></td>
          
        </tbody>
         <% end %>
