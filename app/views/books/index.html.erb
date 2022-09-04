@@ -24,7 +24,7 @@
         </thead>
         <% @books.each do |book| %>
         <tbody class="border-top border-bottom btn-outline-light">
-          <td><%= link_to users_path(@user.id) do %>
+          <td><%= link_to user_path(book.user.id) do %>
           <%= image_tag book.user.get_profile_image(100,100) %>
           <% end %>
            </td>
